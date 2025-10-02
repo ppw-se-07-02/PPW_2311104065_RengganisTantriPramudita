@@ -1,0 +1,29 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+p {
+color: black;
+/* warna teks */
+font-family: Arial;
+/* jenis huruf */
+font-size: 16px;
+/* ukuran huruf */
+font-weight: bold;
+/* tebal */
+text-align: justify;
+/* rata kiri-kanan */
+line-height: 1.5;
+/* jarak antar baris */
+}
+a {
+color: blue;
+text-decoration: none;
+/* hilangkan garis bawah */
+}
+a:hover {
+color: red;
+transition: 0.5s;
+}
+tr{
+    color: blueviolet;
+}
