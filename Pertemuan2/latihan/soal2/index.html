@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TUKUMU | Halaman Administrator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <div class="header admin-header">
+    <h1>ADMINISTRATOR TUKUMU</h1>
+  </div>
+
+  <!-- GRID UTAMA -->
+  <main class="admin-grid">
+    <!-- MENU SAMPING -->
+    <aside class="admin-menu">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#">📋 Data User</a></li>
+        <li><a href="#">🛒 Kelola Produk</a></li>
+        <li><a href="#">🔒 Edit Password</a></li>
+        <li><a href="#">🚪 Logout</a></li>
+      </ul>
+    </aside>
+
+    <!-- KONTEN DINAMIS -->
+    <section class="admin-content">
+      <h2>Data User</h2>
+      <p>Berikut adalah data user yang terdaftar di sistem TUKUMU:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Ren</td>
+            <td>ren@example.com</td>
+            <td>Admin</td>
+            <td><button class="edit-btn">Edit</button> <button class="delete-btn">Hapus</button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Suga</td>
+            <td>Agus@gmail.com</td>
+            <td>Member</td>
+            <td><button class="edit-btn">Edit</button> <button class="delete-btn">Hapus</button></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Berbie</td>
+            <td>baeby@yahoo.com</td>
+            <td>Member</td>
+            <td><button class="edit-btn">Edit</button> <button class="delete-btn">Hapus</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p>Terima Kasih</p>
+  </div>
+</body>
+</html>
