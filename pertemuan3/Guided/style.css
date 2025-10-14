@@ -1,0 +1,380 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #e8e8f0;
+  line-height: 1.6;
+}
+
+/* HEADER */
+.header {
+  background: linear-gradient(to right, #b030c8, #7020d0);
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* MENU */
+.menu {
+  background: #a60b6a;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 0;
+  gap: 15px;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+  color: #ffdaff;
+}
+
+/* Banner CSS Responsif */
+.banner-css {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 400px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Hide radio buttons */
+.banner-css input[type="radio"] {
+  display: none;
+}
+
+.slides {
+  display: flex;
+  width: 300%; /* 3 slide */
+  height: 100%;
+  transition: transform 1s ease-in-out;
+}
+
+.slide {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: co;
+  border-radius: 20px;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Dot style */
+.dots {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+input#slide1:checked ~ .slides { transform: translateX(0%); }
+input#slide2:checked ~ .slides { transform: translateX(-100%); }
+input#slide3:checked ~ .slides { transform: translateX(-200%); }
+
+/* Active dot */
+input#slide1:checked ~ .dots label[for="slide1"],
+input#slide2:checked ~ .dots label[for="slide2"],
+input#slide3:checked ~ .dots label[for="slide3"] {
+  background: #fff;
+}
+
+/* Prev/Next buttons */
+.controls label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s;
+  z-index: 2;
+}
+
+.controls label:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+.controls .prev { left: 10px; }
+.controls .next { right: 10px; }
+
+/* Automatic slide effect dengan CSS keyframes */
+@keyframes slideAnim {
+  0%, 33% { transform: translateX(0%); }
+  34%, 66% { transform: translateX(-100%); }
+  67%, 100% { transform: translateX(-200%); }
+}
+
+.slides {
+  animation: slideAnim 12s infinite;
+}
+
+/* RESPONSIVE */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .banner-css { height: 300px; }
+  .controls label { font-size: 24px; padding: 6px 10px; }
+}
+
+/* HP */
+@media (max-width: 600px) {
+  .banner-css { height: 220px; }
+  .controls label { font-size: 20px; padding: 5px 8px; }
+  .dot { width: 10px; height: 10px; margin: 0 3px; }
+}
+
+
+/* Tombol panah kiri & kanan */
+.banner button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  font-size: 28px;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.banner button:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* MAIN */
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* PRODUK */
+.produk {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.produk-item {
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.produk-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.produk-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.produk-item p {
+  color: #333;
+  font-size: 14px;
+}
+
+.produk-item b {
+  color: #000;
+  font-size: 15px;
+}
+
+/* REKOMENDASI */
+.rekomendasi {
+  width: 280px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: fit-content;
+}
+
+.rekomendasi h3 {
+  background: #b030c8;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.rekomendasi img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.rekomendasi p {
+  color: #333;
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: #b030c8;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px 0;
+}
+
+.footer-section h4 {
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.footer-section p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Laptop sedang */
+@media (max-width: 1200px) {
+  .produk {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .produk {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rekomendasi {
+    width: 100%;
+  }
+
+  .banner {
+    width: 95%;
+    height: 300px;
+  }
+
+  .banner button {
+    font-size: 24px;
+  }
+}
+
+/* HP */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu a {
+    font-size: 14px;
+  }
+
+  .banner {
+    height: 220px;
+  }
+
+  .produk {
+    grid-template-columns: 1fr;
+  }
+
+  .produk-item img {
+    height: 150px;
+  }
+
+  .rekomendasi img {
+    height: 200px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
