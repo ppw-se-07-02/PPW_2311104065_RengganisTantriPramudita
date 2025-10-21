@@ -1,0 +1,289 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #e8e8f0;
+}
+
+/* HEADER */
+.header {
+  background: linear-gradient(to right, #b030c8, #7020d0);
+  color: white;
+  padding: 15px 40px;
+}
+
+/* MENU */
+.menu {
+  background: #a60b6a;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* BANNER */
+.banner {
+  position: relative;
+  width: 80%;
+  height: 400px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.banner img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  border-radius: 10px;
+}
+
+.banner img.active {
+  opacity: 1;
+}
+
+/* MAIN */
+.main {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #e8e8f0;
+}
+
+/* PRODUK */
+.produk {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.produk-item {
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.produk-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.produk-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.produk-item p {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.produk-item b {
+  color: #000;
+  font-size: 15px;
+}
+
+/* REKOMENDASI */
+.rekomendasi {
+  width: 280px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  height: fit-content;
+}
+
+.rekomendasi h3 {
+  background: #b030c8;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.rekomendasi img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.rekomendasi p {
+  color: #333;
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+/* FOOTER */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  background: #b030c8;
+  color: white;
+  padding: 30px 40px;
+}
+
+.footer-section {
+  flex: 1;
+}
+
+.footer-section h4 {
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.footer-section p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .produk {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .produk {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .main {
+    flex-direction: column;
+  }
+
+  .rekomendasi {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .produk {
+    grid-template-columns: 1fr;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+  }
+}
+
+/* Laptop sedang */
+@media (max-width: 1200px) {
+  .produk {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .banner {
+    width: 90%;
+    height: 350px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .banner {
+    width: 95%;
+    height: 300px;
+  }
+
+  .produk {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .main {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .rekomendasi {
+    width: 100%;
+  }
+
+  .menu a {
+    margin: 0 10px;
+    font-size: 15px;
+  }
+}
+
+/* HP */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 22px;
+  }
+
+  .banner {
+    width: 95%;
+    height: 220px;
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 0;
+  }
+
+  .menu a {
+    font-size: 14px;
+    padding: 5px 8px;
+  }
+
+  .produk {
+    grid-template-columns: 1fr;
+  }
+
+  .produk-item img {
+    height: 150px;
+  }
+
+  .rekomendasi img {
+    height: 200px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
