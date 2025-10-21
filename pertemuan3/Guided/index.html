@@ -20,40 +20,12 @@
     <a href="registrasi.html">Login</a>
   </div>
 
-<!-- Banner -->
-<div class="banner-css">
-  <!-- Radio buttons untuk slide -->
-  <input type="radio" name="slide" id="slide1" checked>
-  <input type="radio" name="slide" id="slide2">
-  <input type="radio" name="slide" id="slide3">
-
-  <!-- Slides -->
-  <div class="slides">
-    <div class="slide s1"><img src="assets/banner1_fiks.jpg" alt="Banner 1"></div>
-    <div class="slide s2"><img src="assets/banner2.jpg" alt="Banner 2"></div>
-    <div class="slide s3"><img src="assets/banner4.jpg" alt="Banner 3"></div>
+  <!-- Banner -->
+  <div class="banner">
+    <img src="assets/banner.jpg" class="active" alt="Banner 1">
+    <img src="assets/banner2.jpg" alt="Banner 2">
+    <img src="assets/banner4.jpg" alt="Banner 3">
   </div>
-
-  <!-- Prev/Next -->
-  <div class="controls">
-    <label for="slide3" class="prev">&#10094;</label>
-    <label for="slide2" class="prev">&#10094;</label>
-    <label for="slide1" class="prev">&#10094;</label>
-
-    <label for="slide2" class="next">&#10095;</label>
-    <label for="slide3" class="next">&#10095;</label>
-    <label for="slide1" class="next">&#10095;</label>
-  </div>
-
-  <!-- Dot indikator -->
-  <div class="dots">
-    <label for="slide1" class="dot"></label>
-    <label for="slide2" class="dot"></label>
-    <label for="slide3" class="dot"></label>
-  </div>
-</div>
-
-
 
   <!-- Konten Utama -->
   <div class="main">
@@ -94,30 +66,19 @@
     </div>
   </div>
 
-  <!-- Script slideshow -->
+  <!-- SCRIPT SLIDESHOW OTOMATIS -->
   <script>
-    const images = [
-      "assets/banner.jpg",
-      "assets/banner2.jpg",
-      "assets/banner4.jpg"
-    ];
-    let index = 0;
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.banner img');
 
-    function showSlide() {
-      document.getElementById("banner-img").src = images[index];
+    function showSlides() {
+      slides.forEach(img => img.classList.remove('active'));
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add('active');
     }
 
-    function nextSlide() {
-      index = (index + 1) % images.length;
-      showSlide();
-    }
-
-    function prevSlide() {
-      index = (index - 1 + images.length) % images.length;
-      showSlide();
-    }
-
-    showSlide(); // tampilkan gambar pertama
+    // Jalankan otomatis setiap 3 detik
+    setInterval(showSlides, 3000);
   </script>
 </body>
 </html>
