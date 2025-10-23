@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRAKTIKUM JS DAN JQUERY</title>
+</head>
+<body>
+  <h1>Array pada JavaScript</h1>
+  <p id="array"></p>
+
+  <h1>Metode pada Array</h1>
+  <p id="array2"></p>
+
+  <h1>Percabangan If Else</h1>
+  <p id="outputPercabangan"></p>  
+
+  <h1>Variabel</h1>
+  <p id="outputTipeData"></p>  
+
+  <h1>While</h1>
+  <p id="outputPerulangan"></p> 
+
+    <h1>JS Object</h1>
+  <p id="outputObject"></p> 
+   <p id="outputObject2"></p> 
+
+    <h1>Hasil Perhitungan</h1>
+    <p id="hasil"></p>
+    <h1>Hasil fungsi tambah</h1>
+    <p id="hasilTambah"></p>
+    <h1>Hasil fungsi kali</h1>
+    <p id="hasilKali"></p>
+
+
+
+  <script>
+
+    
+    //ARRAY DASAR
+    var data = ["Satu", 2, true, "Tiga", 4];
+    var arr2 = [["satu", "dua"], ["tiga", "empat"]]; // Array 2D
+
+    document.getElementById("array").innerHTML = 
+      "Elemen pertama: " + data[0] + "<br>" + 
+      "Elemen ketiga: " + data[2] + "<br>" + 
+      "Isi arr2: " + arr2 + "<br>" + 
+      "Elemen arr2[0][1]: " + arr2[0][1] + "<br>" + 
+      "Elemen data[10]: " + data[10]; // undefined
+
+    // METODE ARRAY 
+    var data2 = ["pisang", "apel", "mangga"];
+    var hasilArray = "";
+
+    hasilArray += "Isi awal array: " + data2 + "<br>";
+    hasilArray += "Panjang awal array: " + data2.length + "<br><br>";
+
+    data2.push("durian");
+    hasilArray += "Menambahkan 'durian' (push)<br>";
+    hasilArray += "Isi array setelah push: " + data2 + "<br><br>";
+
+    var dihapus = data2.pop();
+    hasilArray += "Menghapus elemen terakhir (pop): " + dihapus + "<br>";
+    hasilArray += "Isi array setelah pop: " + data2 + "<br>";
+
+    document.getElementById("array2").innerHTML = hasilArray;
+
+    // PERCABANGAN IF ELSE 
+    var pendidikan = "S2"; 
+    var gelar;
+
+    if (pendidikan === "S1") { 
+      gelar = "Sarjana"; 
+    } else if (pendidikan === "S2") { 
+      gelar = "Master"; 
+    } else if (pendidikan === "S3") { 
+      gelar = "Doktor"; 
+    } else { 
+      gelar = "Tidak diketahui"; 
+    }
+
+    document.getElementById("outputPercabangan").innerHTML = 
+      "Sekarang kamu: " + pendidikan + "<br>Gelar kamu: " + gelar;
+
+    //  VARIABEL DAN TIPE DATA
+    var angka = 42;              
+    var teks = "Ahmad Ruslan";    
+    var benar = true;            
+    var salah = false;           
+    var kosong = null;           
+    var tidakDidefinisikan;      
+    var daftar = ["apel", "pisang", "mangga"];
+    var tanggal = new Date();      
+    var pola = /[A-Z]/;    
+    var orang = { nama: "Ruslan", umur: 21 };
+
+    var hasil = ""; 
+    hasil += "<b>Number:</b> " + angka + "<br>"; 
+    hasil += "<b>String:</b> " + teks + "<br>"; 
+    hasil += "<b>Boolean (true):</b> " + benar + "<br>"; 
+    hasil += "<b>Boolean (false):</b> " + salah + "<br>"; 
+    hasil += "<b>Null:</b> " + kosong + "<br>"; 
+    hasil += "<b>Undefined:</b> " + tidakDidefinisikan + "<br>"; 
+    hasil += "<b>Array:</b> " + daftar.join(", ") + "<br>";
+    hasil += "<b>Date:</b> " + tanggal + "<br>"; 
+    hasil += "<b>RegExp:</b> " + pola + ", Tes 'Sirsak' = " + pola.test("Sirsak") + "<br>"; 
+    hasil += "<b>Object:</b> nama = " + orang.nama + ", umur = " + orang.umur + "<br>";
+
+    document.getElementById("outputTipeData").innerHTML = hasil; 
+
+    // PERULANGAN WHILE
+    var text1 = ""; 
+    var i = 0; 
+    while (i < 3) { 
+      text1 += "Perulangan while ke-" + i + "<br>"; 
+      i++; 
+    } 
+    document.getElementById("outputPerulangan").innerHTML = text1; 
+
+
+var objek_kosong = {}; 
+var mobil = { 
+"warna-badan": "merah", // properti dengan nama mengandung tanda hubung 
+"nomor-polisi": "BK1234AB", 
+merk: "Toyota", // properti dengan nama biasa 
+tahun: 2020 
+}; 
+
+// Nested Object 
+var jadwal = { 
+    platform: 34, 
+    telah_berangkat: false, 
+    asal: { 
+        kode_kota: "MDN", 
+        nama_kota: "Medan", 
+        waktu: "2023-12-29 14:00" 
+    }, 
+    tujuan: { 
+        kode_kota: "JKT", 
+        nama_kota: "Jakarta", 
+        waktu: "2023-12-29 17:30" 
+    } 
+}; 
+
+mobil.jumlahBan = 4;
+jadwal.asal.stasiun = "Medan Station";
+
+document.getElementById("outputObject").innerHTML =
+    "Warna Mobil: " + mobil["warna-badan"] + "<br>" +
+    "Nomor Polisi: " + mobil["nomor-polisi"] + "<br>" +
+    "Merk: " + mobil.merk + "<br>" +
+    "Tahun: " + mobil.tahun + "<br>" +
+    "Asal: " + jadwal.asal.nama_kota + "<br>" +
+    "Tujuan: " + jadwal.tujuan.nama_kota + "<br>" +
+    "Jumlah Ban: " + mobil.jumlahBan + "<br>" +
+    "Stasiun Asal: " + jadwal.asal.stasiun;
+
+    var truk = Object.create(mobil);
+
+document.getElementById("outputObject2").innerHTML = 
+"Truk merk:" + Truk.jumlahBan + "<br>" +
+"Merk truk:" + truk.merk + "<br>" +
+"Ukuran Truk:" + truk["ukuran truk"];
+
+        function tambah(a, b) {
+            return a + b;
+        }
+        function kali(a, b) {
+            return a * b;
+        }
+        document.getElementById("hasil").innerHTML = 
+                "Hasil dari tambah(3, 5) adalah " + tambah(3, 5) + "<br>" + 
+                "Hasil dari kali(4, 5) adalah " + kali(4, 5); 
+        
+        // Pemanggilan fungsi dan penyimpanan hasilnya 
+        var simpan = tambah(3, 5);        // simpan = 8 
+        var hasil1 = tambah(simpan, 2);   // 8 + 2 = 10 
+        var hasil2 = tambah(tambah(3, 5), 2); // (8) + 2 = 10 
+        var hasil3 = tambah(tambah(2, 3), 4); // (5) + 4 = 9 
+        // Tampilkan hasil ke HTML 
+        document.getElementById("hasilTambah").innerHTML = 
+            "tambah(3,5) = " + simpan + "<br>" + 
+            "tambah(simpan,2) = " + hasil1 + "<br>" + 
+            "tambah(tambah(3,5),2) = " + hasil2 + "<br>" + 
+            "tambah(tambah(2,3),4) = " + hasil3; 
+        document.getElementById("hasilKali").innerHTML = 
+            "kali(4,5) = " + kali(4,5); // contoh fungsi ekspresi
+
+  </script>
+</body>
+</html>
