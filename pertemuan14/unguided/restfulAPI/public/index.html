@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Mahasiswa</title>
+</head>
+<body>
+  <h2>Form Mahasiswa</h2>
+
+  <input type="text" id="nama" placeholder="Nama"><br><br>
+  <input type="text" id="nim" placeholder="NIM"><br><br>
+  <input type="text" id="jurusan" placeholder="Jurusan"><br><br>
+  <input type="email" id="email" placeholder="Email"><br><br>
+
+  <button onclick="tambahMahasiswa()">Tambah Data</button>
+
+  <h2>Daftar Mahasiswa</h2>
+  <ul id="listMahasiswa"></ul>
+
+  <script>
+    function loadMahasiswa() {
+      fetch("/mahasiswaGet")
+        .then(res => res.json())
+        .then(data => {
+          const list = document.getElementById("listMahasiswa");
+          list.innerHTML = "";
+          data.forEach(m => {
+            list.innerHTML += `
+              <li>
+                ${m.nama} (${m.nim})
+                <button onclick="hapusMahasiswa(${m.id})">Hapus</button>
+              </li>
+            `;
+          });
+        });
+    }
+
+    function tambahMahasiswa() {
+      const data = {
+        nama: document.getElementById("nama").value,
+        nim: document.getElementById("nim").value,
+        jurusan: document.getElementById("jurusan").value,
+        email: document.getElementById("email").value
+      };
+
+      fetch("/mahasiswaCreate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      }).then(() => {
+        loadMahasiswa();
+        alert("Data berhasil ditambahkan");
+      });
+    }
+
+    function hapusMahasiswa(id) {
+      fetch(`/mahasiswaDelete/${id}`, {
+        method: "DELETE"
+      }).then(() => {
+        loadMahasiswa();
+      });
+    }
+
+    loadMahasiswa();
+  </script>
+</body>
+</html>
